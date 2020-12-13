@@ -2,9 +2,6 @@
 use serde::{Deserialize, Serialize};
 use std::fs::read_to_string;
 
-
-
-
 #[derive(Serialize, Deserialize)]
 struct page_info {
     totalResults: u16,
@@ -22,7 +19,7 @@ struct res_data {
 #[derive(Serialize, Deserialize, Debug)]
 struct id_data {
     kind: String,
-    videoId: String,
+    videoId: Option<String>,
 }
 #[derive(Serialize, Deserialize)]
 struct image_data {
@@ -54,10 +51,6 @@ struct item_data {
     id: id_data,
     snippet: snippet_data,
 }
-
-
-
-
 
 fn main() {
     let data = read_to_string("recipes.json").unwrap();
